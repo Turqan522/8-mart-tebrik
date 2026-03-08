@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>8 Mart</title>
+
+<meta property="og:title" content="8 Mart Təbriki 🌷">
+<meta property="og:description" content="8 Mart münasibətilə kiçik bir təbrik səhifəsi hazırladım. Ümid edirəm xoşunuza gələr.">
+<meta property="og:image" content="https://i.imgur.com/3ZQ3Z6K.jpg">
+<meta property="og:type" content="website">
+
+</head>
+
+<body style="text-align:center;font-family:sans-serif;margin-top:100px;">
+<h1>🌷 8 Martınız Mübarək 🌷</h1>
+<p>Bütün xanımları təbrik edirəm.</p>
+</body>
+</html>
