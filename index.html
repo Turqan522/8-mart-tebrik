@@ -1,676 +1,614 @@
 <!DOCTYPE html>
-<html>
+<html lang="az">
 <head>
-    <title>Nahid üçün 8 Mart</title>
+    <meta charset="UTF-8">
+    <!-- Bu meta teq səhifənin mobil cihazlarda düzgün görünməsini təmin edir -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Səməd üçün 8 Mart</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700;900&family=Playfair+Display:wght@400;700;900&family=Great+Vibes:wght@400;700&family=Sacramento&display=swap');
-        
+        /* Gözəl və müasir fontlar */
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap');
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Playfair Display', serif;
             overflow-x: hidden;
+            background: #fce4ec; /* Əsas fon rəngi, gradient işləməsə belə */
         }
-        
-        /* SƏHİFƏ 1 - Açılış */
+
+        /* --- SƏHİFƏ 1: Açılış Səhifəsi (Giriş) --- */
         .page1 {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
-            background: radial-gradient(circle at 30% 50%, #ff9a9e, #fad0c4, #ffdde1, #ffb6c1);
+            height: 100vh; /* Tam ekran */
+            background: linear-gradient(145deg, #f8bbd0, #fce4ec, #ffcdd2, #f8bbd0);
             background-size: 300% 300%;
-            animation: gradientMove 8s ease infinite;
+            animation: gradientBG 12s ease infinite;
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 10;
-            transition: 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 20;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            padding: 15px;
         }
-        
-        .page1.hide {
+
+        .page1.hidden {
             opacity: 0;
             visibility: hidden;
-            transform: scale(0.8);
+            pointer-events: none; /* Arxa fondakı elementlərə toxunmağa icazə ver */
         }
-        
-        @keyframes gradientMove {
+
+        @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-        
+
         .page1-content {
+            max-width: 700px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(12px); /* Şüşə effekti */
+            -webkit-backdrop-filter: blur(12px); /* Safari (iPhone) üçün */
+            border: 3px solid rgba(255, 215, 0, 0.7); /* Qızılı rəng */
+            border-radius: 70px 70px 150px 150px;
+            padding: 40px 25px;
             text-align: center;
-            color: white;
-            max-width: 900px;
-            padding: 60px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            border-radius: 100px 100px 200px 200px;
-            border: 6px solid rgba(255, 215, 0, 0.8);
-            box-shadow: 0 40px 80px rgba(0,0,0,0.4), 0 0 0 10px rgba(255,105,180,0.3);
-            animation: appear 1.5s ease-out;
+            color: #4a1a2c;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            animation: floatIn 1s ease-out;
         }
-        
-        @keyframes appear {
-            0% { transform: scale(0.3) rotate(-10deg); opacity: 0; }
-            100% { transform: scale(1) rotate(0); opacity: 1; }
+
+        @keyframes floatIn {
+            0% { opacity: 0; transform: scale(0.8) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
         }
-        
-        .page1 h1 {
-            font-size: 90px;
-            font-family: 'Great Vibes', cursive;
-            margin-bottom: 30px;
-            text-shadow: 4px 4px 0 #ff1493, 8px 8px 20px rgba(255,215,0,0.8);
-            letter-spacing: 2px;
-        }
-        
-        .page1 p {
-            font-size: 40px;
-            margin: 40px 0;
-            font-family: 'Dancing Script', cursive;
-            line-height: 1.6;
-        }
-        
-        .flower-circle {
-            font-size: 80px;
-            margin: 30px 0;
-            animation: spinSlow 15s linear infinite;
+
+        .big-emoji {
+            font-size: clamp(4rem, 15vw, 6rem); /* Mobil və böyük ekran üçün dinamik ölçü */
+            line-height: 1.2;
+            margin-bottom: 15px;
+            animation: spinSlow 12s linear infinite;
             display: inline-block;
         }
-        
+
         @keyframes spinSlow {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-        
-        .start-btn {
-            background: linear-gradient(135deg, #FFD700, #FF69B4, #FF1493);
+
+        .page1 h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(3rem, 10vw, 5rem);
+            margin: 15px 0;
+            text-shadow: 2px 2px 0 #ff80ab, 4px 4px 10px gold;
+            color: #880e4f;
+        }
+
+        .page1 p {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            margin: 25px 0 15px;
+        }
+
+        .page1 .start-btn {
+            background: linear-gradient(45deg, gold, #ff69b4, #ff1493);
+            border: 4px solid white;
             color: white;
-            font-size: 55px;
-            font-family: 'Sacramento', cursive;
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             font-weight: bold;
-            padding: 30px 80px;
-            border: none;
-            border-radius: 120px;
+            padding: 20px 40px;
+            border-radius: 60px;
+            box-shadow: 0 15px 30px rgba(255, 20, 147, 0.6);
             cursor: pointer;
-            box-shadow: 0 25px 50px rgba(255,20,147,0.5);
-            transition: 0.4s;
-            border: 5px solid white;
-            margin-top: 40px;
-            text-shadow: 2px 2px 0 #8B0000;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 30px 0 15px;
+            width: 100%;
+            max-width: 400px;
             letter-spacing: 2px;
         }
-        
-        .start-btn:hover {
-            transform: scale(1.15) rotate(2deg);
-            box-shadow: 0 35px 70px gold;
+
+        .page1 .start-btn:active {
+            transform: scale(0.95); /* Toxunanda kiçilir */
+            box-shadow: 0 5px 15px gold;
         }
-        
-        .start-btn:active {
-            transform: scale(0.9);
-        }
-        
-        /* SƏHİFƏ 2 - NAHİD ÜÇÜN */
+
+        /* --- SƏHİFƏ 2: Əsas Təbrik Səhifəsi (Səməd üçün) --- */
         .page2 {
             min-height: 100vh;
-            background: linear-gradient(115deg, #fff1f2, #fce4ec, #ffe4e1, #fff0f5, #ffe4f5);
-            background-size: 500% 500%;
-            animation: gradientWave 16s ease infinite;
-            padding: 30px;
+            background: linear-gradient(145deg, #fff1f2, #ffe4ec, #ffd9e8, #ffccdd);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
+            padding: 20px;
         }
-        
-        @keyframes gradientWave {
+
+        @keyframes gradientMove {
             0% { background-position: 0% 0%; }
-            25% { background-position: 100% 0%; }
             50% { background-position: 100% 100%; }
-            75% { background-position: 0% 100%; }
             100% { background-position: 0% 0%; }
         }
-        
-        /* Uçan qəlblər */
-        .floating-hearts {
+
+        /* Uçan ürək və çiçəklər (iPhone-da da işləyir) */
+        .floating-elements {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
+            pointer-events: none; /* Toxunmalara mane olmur */
             z-index: 5;
+            overflow: hidden;
         }
-        
-        .heart {
+
+        .float-item {
             position: absolute;
-            color: rgba(255, 105, 180, 0.6);
-            font-size: 40px;
-            animation: heartFloat 12s linear infinite;
-            text-shadow: 0 0 20px gold;
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            opacity: 0.5;
+            color: #f06292;
+            animation: floatUp 10s linear infinite;
+            text-shadow: 0 0 10px gold;
         }
-        
-        @keyframes heartFloat {
-            0% {
-                transform: translateY(100vh) scale(0.5);
-                opacity: 0;
-            }
-            20% {
-                opacity: 1;
-                transform: translateY(80vh) scale(1.2);
-            }
-            80% {
-                opacity: 1;
-                transform: translateY(20vh) scale(1);
-            }
-            100% {
-                transform: translateY(-20vh) scale(0.5);
-                opacity: 0;
-            }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) rotate(0deg) scale(0.5); opacity: 0; }
+            20% { opacity: 0.7; }
+            80% { opacity: 0.7; }
+            100% { transform: translateY(-20vh) rotate(360deg) scale(1.2); opacity: 0; }
         }
-        
-        /* Əsas kart */
-        .nahid-card {
-            max-width: 1100px;
-            margin: 50px auto;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(20px);
-            border-radius: 120px 120px 200px 200px;
-            padding: 80px 60px;
-            box-shadow: 0 60px 100px rgba(199, 21, 133, 0.4), 0 0 0 10px gold, 0 0 0 20px #ffb6c1;
-            border: 8px solid white;
-            animation: cardGlide 5s ease infinite;
+
+        /* Əsas Kart */
+        .semad-card {
+            max-width: 1000px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 80px 80px 150px 150px;
+            padding: 40px 25px;
+            box-shadow: 0 40px 70px rgba(199, 21, 133, 0.4), 0 0 0 8px gold, 0 0 0 15px #ffb6c1;
+            border: 5px solid white;
+            animation: cardPulse 4s ease infinite;
             position: relative;
             z-index: 10;
+            margin: 30px auto;
         }
-        
-        @keyframes cardGlide {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-15px) rotate(0.5deg); }
-            75% { transform: translateY(15px) rotate(-0.5deg); }
+
+        @keyframes cardPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 40px 70px rgba(199, 21, 133, 0.4), 0 0 0 8px gold, 0 0 0 15px #ffb6c1; }
+            50% { transform: scale(1.01); box-shadow: 0 50px 80px #ff69b4, 0 0 0 10px gold, 0 0 0 18px #ff99cc; }
         }
-        
-        /* NAHİD nəhəng */
-        .nahid-dev {
+
+        /* SƏMƏD adı - nəhəng və zərif */
+        .semad-name {
             font-family: 'Great Vibes', cursive;
-            font-size: 160px;
+            font-size: clamp(4rem, 20vw, 12rem);
             text-align: center;
-            color: #8B0000;
-            text-shadow: 5px 5px 0 gold, 10px 10px 20px #ff69b4, 0 0 40px rgba(255,215,0,0.5);
-            margin: 20px 0;
-            animation: glowPulse 3s ease infinite;
-            line-height: 0.9;
+            color: #8b1e3f;
+            text-shadow: 4px 4px 0 gold, 8px 8px 20px #ff69b4, 12px 12px 30px rgba(0,0,0,0.1);
+            margin: 10px 0;
+            animation: nameGlow 3s ease infinite;
+            line-height: 1;
+            word-break: break-word; /* Uzun sözlərin qırılması */
         }
-        
-        @keyframes glowPulse {
-            0%, 100% { text-shadow: 5px 5px 0 gold, 10px 10px 30px #ff69b4; }
-            50% { text-shadow: 8px 8px 0 gold, 15px 15px 50px #ff1493; }
+
+        @keyframes nameGlow {
+            0%, 100% { text-shadow: 4px 4px 0 gold, 8px 8px 20px #ff69b4; }
+            50% { text-shadow: 6px 6px 0 gold, 12px 12px 30px #ff1493; }
         }
-        
-        /* 8 Mart böyük */
-        .mart-super {
-            font-size: 110px;
+
+        .mart-title {
+            font-size: clamp(3.5rem, 12vw, 7rem);
             text-align: center;
             font-family: 'Sacramento', cursive;
             font-weight: bold;
-            background: linear-gradient(45deg, #c41e3a, gold, #ff1493, #c41e3a);
+            background: linear-gradient(45deg, #c2185b, gold, #d81b60, #c2185b);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin: 15px 0;
-            animation: shine 4s linear infinite;
-            text-transform: uppercase;
-            letter-spacing: 10px;
+            background-clip: text;
+            margin: 10px 0 5px;
+            animation: shine 5s linear infinite;
+            letter-spacing: 5px;
         }
-        
+
         @keyframes shine {
             0% { background-position: 0% 50%; }
             100% { background-position: 200% 50%; }
         }
-        
-        .sub-mart {
-            font-size: 50px;
+
+        .sub-title {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
             text-align: center;
-            color: #8B4513;
+            color: #b95b5b;
             font-family: 'Dancing Script', cursive;
-            margin-bottom: 40px;
-            border-bottom: 3px dashed gold;
-            border-top: 3px dashed gold;
-            padding: 20px;
+            border-bottom: 2px dashed gold;
+            border-top: 2px dashed gold;
+            padding: 15px 0;
+            margin: 20px 0 30px;
         }
-        
-        /* Bölmələr */
-        .section {
-            margin: 60px 0;
-            padding: 40px;
-            border-radius: 80px;
-            background: rgba(255, 240, 245, 0.7);
-            box-shadow: inset 0 0 80px rgba(255,105,180,0.2), 0 20px 40px rgba(0,0,0,0.1);
-        }
-        
-        /* 1-ci mesaj - Bayramınız Mübarək */
-        .message-1 {
-            font-size: 55px;
-            text-align: center;
-            font-family: 'Great Vibes', cursive;
-            color: #c41e3a;
-            line-height: 1.5;
-            border-left: 15px solid gold;
-            border-right: 15px solid gold;
-            padding: 30px;
-        }
-        
-        .message-1 span {
-            font-size: 70px;
-            display: block;
-            color: #8B0000;
-            text-shadow: 2px 2px 0 gold;
-        }
-        
-        /* 2-ci mesaj - arzular */
-        .message-2 {
-            font-size: 40px;
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            color: #2c3e50;
-            background: rgba(255, 215, 0, 0.1);
-            padding: 50px;
+
+        /* Mesaj bölmələri */
+        .message-block {
+            background: rgba(255, 255, 255, 0.6);
             border-radius: 60px;
-            border: 3px dotted #ff69b4;
-            line-height: 1.8;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            padding: 35px 25px;
+            margin: 40px 0;
+            border: 3px dotted #ff99bb;
+            box-shadow: inset 0 0 40px #ffe0f0;
+            font-size: clamp(1.4rem, 4vw, 2rem);
+            line-height: 1.7;
+            text-align: center;
+            color: #3a2a2a;
         }
-        
-        .message-2 strong {
-            font-size: 45px;
-            color: #8B0000;
-            font-family: 'Dancing Script', cursive;
+
+        .message-block strong {
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: #a53860;
+            font-family: 'Great Vibes', cursive;
+            display: block;
+            margin-bottom: 20px;
         }
-        
-        /* Şəkil qalereyası */
-        .gallery-premium {
+
+        .message-block .highlight {
+            background: linear-gradient(120deg, #fce4ec, #fff9c4);
+            padding: 5px 15px;
+            border-radius: 40px;
+            font-weight: bold;
+            color: #8b1e3f;
+        }
+
+        .photo-gallery {
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin: 60px 0;
             flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin: 50px 0;
         }
-        
-        .frame-luxury {
-            width: 250px;
-            height: 300px;
+
+        .photo-frame {
+            width: 150px;
+            height: 200px;
             border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
-            border: 10px solid gold;
+            border: 8px solid gold;
             overflow: hidden;
-            animation: frameDance 7s ease infinite;
-            box-shadow: 0 40px 70px rgba(0,0,0,0.4);
-            transform: rotate(var(--rot));
-            transition: 0.5s;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transform: rotate(calc(var(--rot) * 1deg));
+            transition: transform 0.3s;
+            animation: frameFloat 6s ease infinite;
         }
-        
-        .frame-luxury:nth-child(1) { --rot: -5deg; animation-delay: 0s; }
-        .frame-luxury:nth-child(2) { --rot: 5deg; animation-delay: 1s; }
-        .frame-luxury:nth-child(3) { --rot: -3deg; animation-delay: 2s; }
-        
-        @keyframes frameDance {
-            0%, 100% { border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%; transform: rotate(var(--rot)) scale(1); }
-            50% { border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%; transform: rotate(0deg) scale(1.05); border-color: #ff1493; }
+
+        .photo-frame:nth-child(1) { --rot: -4; animation-delay: 0s; }
+        .photo-frame:nth-child(2) { --rot: 4; animation-delay: 1s; }
+        .photo-frame:nth-child(3) { --rot: -2; animation-delay: 2s; }
+
+        @keyframes frameFloat {
+            0%, 100% { transform: rotate(calc(var(--rot) * 1deg)) translateY(0); }
+            50% { transform: rotate(calc(var(--rot) * 0.5deg)) translateY(-15px); border-color: #ff80ab; }
         }
-        
-        .frame-luxury:hover {
-            transform: scale(1.15) rotate(0deg);
-            z-index: 100;
-        }
-        
-        .frame-luxury img {
+
+        .photo-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
-        /* NAHİD ÜÇÜN MESAJ */
-        .nahid-message {
-            background: linear-gradient(145deg, #fff9e6, #fff0f5);
-            border-radius: 100px 100px 200px 200px;
-            padding: 70px;
-            margin: 50px 0;
-            border: 8px double gold;
-            font-size: 42px;
-            line-height: 2;
+
+        /* Turqandan Səmədə xüsusi hissə */
+        .from-turqan {
             text-align: center;
-            color: #4a2c2c;
-            font-family: 'Dancing Script', cursive;
-            box-shadow: 0 30px 60px rgba(255,105,180,0.3);
-        }
-        
-        .nahid-message .big {
-            font-size: 70px;
-            font-family: 'Great Vibes', cursive;
-            color: #c41e3a;
-            display: block;
-            margin-bottom: 30px;
-        }
-        
-        .nahid-message .heart-line {
-            font-size: 60px;
-            margin: 30px 0;
-            color: #ff1493;
-        }
-        
-        /* Turqandan Nahidə */
-        .from-turqan-final {
-            text-align: center;
-            background: radial-gradient(circle at 30% 30%, gold, #ff69b4);
-            padding: 60px;
-            border-radius: 200px 200px 100px 100px;
+            background: radial-gradient(circle, gold, #ff80ab);
+            padding: 40px 20px;
+            border-radius: 150px 150px 80px 80px;
             margin: 60px 0 30px;
             color: white;
-            font-size: 70px;
-            font-family: 'Sacramento', cursive;
-            border: 10px solid white;
-            box-shadow: 0 40px 70px rgba(0,0,0,0.4);
-            animation: finalBox 6s ease infinite;
-            text-shadow: 3px 3px 0 #8B0000;
-        }
-        
-        @keyframes finalBox {
-            0%, 100% { border-radius: 200px 200px 100px 100px; }
-            50% { border-radius: 100px 100px 200px 200px; background: radial-gradient(circle at 70% 70%, #ff69b4, gold); }
-        }
-        
-        .from-turqan-final span {
-            font-size: 110px;
-            display: block;
             font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.2rem, 6vw, 3.5rem);
+            border: 8px solid white;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            animation: footerGlow 5s ease infinite;
+            text-shadow: 2px 2px 0 #a53860;
         }
-        
-        .from-turqan-final small {
-            font-size: 50px;
+
+        @keyframes footerGlow {
+            0%, 100% { border-radius: 150px 150px 80px 80px; }
+            50% { border-radius: 80px 80px 150px 150px; background: radial-gradient(circle, #ff80ab, gold); }
+        }
+
+        .from-turqan span {
+            font-size: clamp(3rem, 10vw, 5rem);
             display: block;
-            margin-top: 30px;
+        }
+
+        .from-turqan small {
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            display: block;
+            margin-top: 15px;
             font-family: 'Dancing Script', cursive;
         }
-        
-        /* Çiçək sıraları */
-        .flower-line {
+
+        .flower-row {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            font-size: 80px;
-            margin: 40px 0;
+            gap: 10px 20px;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            margin: 30px 0 10px;
             flex-wrap: wrap;
         }
-        
-        .flower-line span {
-            animation: flowerHop 2.5s ease infinite;
-            filter: drop-shadow(0 15px 20px rgba(0,0,0,0.3));
+
+        .flower-row span {
+            animation: bounce 2s ease infinite;
+            filter: drop-shadow(0 5px 10px gold);
         }
-        
-        .flower-line span:nth-child(1) { animation-delay: 0s; }
-        .flower-line span:nth-child(2) { animation-delay: 0.4s; }
-        .flower-line span:nth-child(3) { animation-delay: 0.8s; }
-        .flower-line span:nth-child(4) { animation-delay: 1.2s; }
-        .flower-line span:nth-child(5) { animation-delay: 1.6s; }
-        
-        @keyframes flowerHop {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-40px) rotate(15deg); }
+        .flower-row span:nth-child(1) { animation-delay: 0s; }
+        .flower-row span:nth-child(2) { animation-delay: 0.3s; }
+        .flower-row span:nth-child(3) { animation-delay: 0.6s; }
+        .flower-row span:nth-child(4) { animation-delay: 0.9s; }
+        .flower-row span:nth-child(5) { animation-delay: 1.2s; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
-        
-        /* Audio */
-        #bgMusic {
+
+        /* Audio player - Gizli saxlanılır */
+        #bg-music {
             display: none;
         }
-        
-        /* Konfeti */
-        #confettiCanvas {
+
+        /* Konfeti sahəsi */
+        #confetti-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1000;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nahid-dev { font-size: 90px; }
-            .mart-super { font-size: 70px; }
-            .page1 h1 { font-size: 60px; }
-            .start-btn { font-size: 40px; padding: 20px 50px; }
+            z-index: 100;
+            display: none;
         }
     </style>
 </head>
 <body>
 
-<!-- Audio - 8 Mart mahnısı -->
-<audio id="bgMusic" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" type="audio/mp3">
-</audio>
+    <!-- Audio elementi: Mahnı -->
+    <audio id="bg-music" loop playsinline>
+        <!-- Bu linki öz MP3 linkinizlə dəyişəcəksiniz. Hazırda səssiz bir fayl qoyuram ki, səhv olmasın. -->
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
+    </audio>
 
-<!-- Uçan qəlblər -->
-<div class="floating-hearts" id="floatingHearts"></div>
+    <!-- Uçan elementlər (ürək, çiçək) -->
+    <div class="floating-elements" id="floating-elements"></div>
 
-<!-- Konfeti -->
-<canvas id="confettiCanvas"></canvas>
+    <!-- Konfeti üçün canvas -->
+    <canvas id="confetti-canvas"></canvas>
 
-<!-- SƏHİFƏ 1 - Açılış -->
-<div class="page1" id="page1">
-    <div class="page1-content">
-        <div class="flower-circle">🌸 🌺 🌷</div>
-        <h1>Xüsusi Təbrik Mesajı</h1>
-        <p>🌼 8 Mart üçün kiçik bir sürpriz</p>
-        <p style="font-size: 36px;">Balaca bir təbrik səhifəsi hazırladım.<br>Hazırsınızsa, başlayaq.</p>
-        <button class="start-btn" onclick="startPage2()">Başlayaq :)</button>
-        <div class="flower-circle" style="margin-top: 30px;">🌷 🌺 🌸</div>
+    <!-- SƏHİFƏ 1: Giriş -->
+    <div class="page1" id="page-1">
+        <div class="page1-content">
+            <div class="big-emoji">✨🌷✨</div>
+            <h1>Xüsusi Təbrik</h1>
+            <p>8 Mart üçün balaca bir sürprizim var.</p>
+            <p style="font-size: clamp(1.5rem, 5vw, 2.2rem);">Hazırsanmı, Səməd?</p>
+            <button class="start-btn" id="start-btn">Başlayaq :)</button>
+            <div class="big-emoji">🌸🌺🌼</div>
+        </div>
     </div>
-</div>
 
-<!-- SƏHİFƏ 2 - NAHİD ÜÇÜN -->
-<div class="page2" id="page2">
-    <div class="nahid-card">
-        
-        <!-- Üst çiçəklər -->
-        <div class="flower-line">
-            <span>🌹</span>
-            <span>🌺</span>
-            <span>🌸</span>
-            <span>🌷</span>
-            <span>🌼</span>
-        </div>
-        
-        <!-- NAHİD - Nəhəng -->
-        <h1 class="nahid-dev">Nahid</h1>
-        
-        <!-- 8 Mart -->
-        <div class="mart-super">8 MART</div>
-        <div class="sub-mart">Beynəlxalq Qadınlar Günün Mübarək!</div>
-        
-        <!-- 1-ci bölmə - Bayramınız Mübarək -->
-        <div class="section">
-            <div class="message-1">
-                <span>✨ Bayramın Mübarək! ✨</span>
-                <br>
-                🌸 Əziz Nahid, 8 Martın mübarək! 🌸
+    <!-- SƏHİFƏ 2: Səməd üçün Təbrik -->
+    <div class="page2" id="page-2" style="display: none;"> <!-- Əvvəlcə gizli -->
+        <div class="semad-card">
+            <div class="flower-row">
+                <span>🌹</span> <span>🌺</span> <span>🌸</span> <span>🌷</span> <span>🌼</span>
             </div>
-        </div>
-        
-        <!-- 2-ci bölmə - Arzular -->
-        <div class="section">
-            <div class="message-2">
-                <strong>Sənə sevinc, uğur və gözəl xatirələrlə dolu bir həyat arzulayıram!</strong>
+
+            <h1 class="semad-name">Səməd</h1>
+            <div class="mart-title">8 MART</div>
+            <div class="sub-title">Beynəlxalq Qadınlar Günün Mübarək!</div>
+
+            <div class="message-block">
+                <strong>✨ Əziz Səməd! ✨</strong>
+                8 Mart Qadınlar Günü münasibətilə səni ürəkdən təbrik edirəm!
                 <br><br>
-                Hər zaman sağlam, xoşbəxt və gülərüz ol. 
-                Üzündən təbəssüm heç vaxt əskik olmasın.
+                <span class="highlight">Yaxşı ki, varsan, yaxşı ki, dostumsan.</span>
+                <br><br>
+                Sənə həyatda sonsuz uğurlar, sevinc və gözəlliklər arzulayıram.
+                Hər zaman ürəyincə olsun!
+            </div>
+
+            <div class="photo-gallery">
+                <div class="photo-frame"><img src="https://cdn.pixabay.com/photo/2017/02/15/12/21/flower-2068494_640.jpg" alt="Gül"></div>
+                <div class="photo-frame"><img src="https://cdn.pixabay.com/photo/2016/06/28/05/09/flower-1484108_640.jpg" alt="Lalə"></div>
+                <div class="photo-frame"><img src="https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_640.jpg" alt="Qızılgül"></div>
+            </div>
+
+            <div class="message-block">
+                Bu gözəl gündə ən xoş arzularım səninlədir.
+                <br>Gülüşün heç vaxt solmasın, ürəyin həmişə işıqla dolsun.
+            </div>
+
+            <!-- Turqandan Səmədə - sadə və gözəl -->
+            <div class="from-turqan">
+                <span>💫 Turqadan 💫</span>
+                Dostu Səmədə
+                <small>8 Mart təbriki ilə</small>
+            </div>
+
+            <div class="flower-row">
+                <span>🌸</span> <span>🌼</span> <span>🌻</span> <span>🌺</span> <span>🌷</span>
+            </div>
+            <div style="text-align: center; font-size: clamp(1.5rem, 4vw, 2rem); color: #b34180; margin-top: 20px;">
+                ✨ 8 MART 2026 ✨
             </div>
         </div>
-        
-        <!-- Şəkillər -->
-        <div class="gallery-premium">
-            <div class="frame-luxury">
-                <img src="https://cdn.pixabay.com/photo/2016/11/22/19/15/hand-1850120_640.jpg" alt="Dostluq">
-            </div>
-            <div class="frame-luxury">
-                <img src="https://cdn.pixabay.com/photo/2016/11/29/09/32/mother-1868705_640.jpg" alt="Sevgi">
-            </div>
-            <div class="frame-luxury">
-                <img src="https://cdn.pixabay.com/photo/2017/08/01/09/07/mother-2563474_640.jpg" alt="Gözəllik">
-            </div>
-        </div>
-        
-        <!-- NAHİD ÜÇÜN MESAJ -->
-        <div class="nahid-message">
-            <span class="big">💝 Əziz dostum Nahid! 💝</span>
-            
-            Sən mənim ən yaxın dostlarımdan birisən.
-            <br><br>
-            Bu gözəl gündə səni ürəkdən təbrik edirəm.
-            <br><br>
-            Sənə sonsuz xoşbəxtlik, sevgi və uğurlar arzulayıram.
-            <br><br>
-            <span class="heart-line">❤️ NAHİD 8 MARTIN MÜBARƏK! ❤️</span>
-            
-            Hər zaman gül, hər zaman xoşbəxt ol!
-        </div>
-        
-        <!-- Turqadan Nahidə -->
-        <div class="from-turqan-final">
-            <span>💐 Turqadan 💐</span>
-            Dostu Nahidə
-            <small>8 Mart təbriki ilə</small>
-        </div>
-        
-        <!-- Alt çiçəklər -->
-        <div class="flower-line">
-            <span>🌸</span>
-            <span>🌼</span>
-            <span>🌻</span>
-            <span>🌺</span>
-            <span>🌷</span>
-        </div>
-        
-        <!-- Tarix -->
-        <div style="text-align: center; font-size: 40px; color: gold; margin-top: 30px; font-family: 'Dancing Script';">
-            💮 8 MART 2026 💮
-        </div>
-        
     </div>
-</div>
 
-<script>
-    function startPage2() {
-        document.getElementById('page1').classList.add('hide');
-        startConfetti();
-        playMusic();
-    }
-    
-    function createFloatingHearts() {
-        const container = document.getElementById('floatingHearts');
-        const symbols = ['❤️', '💖', '💗', '💓', '💕', '💘', '💝', '🌸', '🌺', '🌷'];
-        
-        for (let i = 0; i < 50; i++) {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.fontSize = (Math.random() * 40 + 20) + 'px';
-            heart.style.animationDelay = Math.random() * 10 + 's';
-            heart.style.animationDuration = (Math.random() * 8 + 10) + 's';
-            container.appendChild(heart);
-        }
-    }
-    
-    function startConfetti() {
-        const canvas = document.getElementById('confettiCanvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        
-        const particles = [];
-        const colors = ['#FFD700', '#FF69B4', '#FF1493', '#FFB6C1', '#FFFFFF', '#FFA500', '#FF4500', '#DA70D6'];
-        
-        for (let i = 0; i < 250; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                size: Math.random() * 15 + 3,
-                color: colors[Math.floor(Math.random() * colors.length)],
-                speedY: Math.random() * 6 + 2,
-                speedX: (Math.random() - 0.5) * 4,
-                rotation: Math.random() * 360
-            });
-        }
-        
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            particles.forEach(p => {
-                ctx.save();
-                ctx.translate(p.x, p.y);
-                ctx.rotate(p.rotation * Math.PI / 180);
-                ctx.fillStyle = p.color;
-                ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
-                ctx.restore();
-                
-                p.y += p.speedY;
-                p.x += p.speedX;
-                p.rotation += 3;
-                
-                if (p.y > canvas.height) {
-                    p.y = 0;
-                    p.x = Math.random() * canvas.width;
+    <script>
+        (function() {
+            "use strict";
+
+            // --- Element seçiciləri ---
+            const page1 = document.getElementById('page-1');
+            const page2 = document.getElementById('page-2');
+            const startBtn = document.getElementById('start-btn');
+            const audio = document.getElementById('bg-music');
+            const floatingContainer = document.getElementById('floating-elements');
+            const confettiCanvas = document.getElementById('confetti-canvas');
+
+            // --- Uçan elementləri yarat (iPhone və Android üçün optimallaşdırılıb) ---
+            function createFloatingItems() {
+                if (!floatingContainer) return;
+                const items = ['🌸', '🌺', '🌷', '🌼', '🌻', '❤️', '💖', '💗', '✨', '⭐'];
+                for (let i = 0; i < 20; i++) { // Daha az element, daha sürətli
+                    const div = document.createElement('div');
+                    div.className = 'float-item';
+                    div.innerHTML = items[Math.floor(Math.random() * items.length)];
+                    div.style.left = Math.random() * 100 + '%';
+                    div.style.fontSize = (Math.random() * 30 + 20) + 'px'; // 20-50px arası
+                    div.style.animationDelay = Math.random() * 8 + 's';
+                    div.style.animationDuration = (Math.random() * 8 + 8) + 's'; // 8-16 saniyə
+                    floatingContainer.appendChild(div);
                 }
-            });
-            
-            requestAnimationFrame(animate);
-        }
-        
-        animate();
-    }
-    
-    function playMusic() {
-        const music = document.getElementById('bgMusic');
-        music.volume = 0.6;
-        
-        const playPromise = music.play();
-        
-        if (playPromise !== undefined) {
-            playPromise.then(() => {
-                console.log('✅ Mahnı çalır');
-            }).catch(() => {
-                console.log('⚠️ Klik gözlənilir');
-                document.body.addEventListener('click', function playOnClick() {
-                    music.play();
-                    document.body.removeEventListener('click', playOnClick);
-                }, { once: true });
-            });
-        }
-    }
-    
-    window.onload = function() {
-        createFloatingHearts();
-        
-        const music = document.getElementById('bgMusic');
-        music.volume = 0.6;
-        music.play().catch(() => {});
-        
-        document.getElementById('page1').classList.remove('hide');
-    };
-    
-    window.addEventListener('resize', function() {
-        const canvas = document.getElementById('confettiCanvas');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
-</script>
+            }
 
+            // --- Konfeti effekti (sadə və işlək) ---
+            function startConfetti() {
+                if (!confettiCanvas) return;
+                const ctx = confettiCanvas.getContext('2d');
+                confettiCanvas.width = window.innerWidth;
+                confettiCanvas.height = window.innerHeight;
+                confettiCanvas.style.display = 'block';
+
+                const particles = [];
+                const colors = ['#FFD700', '#FF69B4', '#FF1493', '#FFB6C1', '#FFA500', '#DA70D6'];
+
+                for (let i = 0; i < 150; i++) {
+                    particles.push({
+                        x: Math.random() * confettiCanvas.width,
+                        y: Math.random() * confettiCanvas.height,
+                        size: Math.random() * 10 + 5,
+                        color: colors[Math.floor(Math.random() * colors.length)],
+                        speedY: Math.random() * 5 + 3,
+                        speedX: (Math.random() - 0.5) * 3,
+                        rotation: Math.random() * 360
+                    });
+                }
+
+                function animate() {
+                    if (!confettiCanvas || confettiCanvas.style.display === 'none') return;
+                    ctx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+                    let anyVisible = false;
+                    particles.forEach(p => {
+                        ctx.save();
+                        ctx.translate(p.x, p.y);
+                        ctx.rotate(p.rotation * Math.PI / 180);
+                        ctx.fillStyle = p.color;
+                        ctx.fillRect(-p.size/2, -p.size/2, p.size, p.size);
+                        ctx.restore();
+
+                        p.y += p.speedY;
+                        p.x += p.speedX;
+                        p.rotation += 2;
+
+                        if (p.y > confettiCanvas.height) {
+                            p.y = 0;
+                            p.x = Math.random() * confettiCanvas.width;
+                        }
+                        anyVisible = true;
+                    });
+                    if (anyVisible) {
+                        requestAnimationFrame(animate);
+                    }
+                }
+                animate();
+
+                // 7 saniyə sonra konfetini dayandır
+                setTimeout(() => {
+                    if (confettiCanvas) confettiCanvas.style.display = 'none';
+                }, 7000);
+            }
+
+            // --- Mahnını çalma funksiyası (iPhone/Android üçün xüsusi) ---
+            function playMusic() {
+                if (!audio) return;
+                audio.volume = 0.6; // Rahat səs səviyyəsi
+
+                // Mahnını çalmağa cəhd et
+                const playPromise = audio.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        console.log('✅ Mahnı uğurla çalır');
+                    }).catch(error => {
+                        console.log('⚠️ Avtomatik çalma bloklandı: ', error);
+                        // Səhifəyə bir toxunmada çalması üçün event listener əlavə et
+                        const playOnFirstTouch = function() {
+                            audio.play().then(() => {
+                                console.log('✅ Toxunma ilə çaldı');
+                            }).catch(e => console.log('❌ Yenə çalmadı:', e));
+                            document.body.removeEventListener('click', playOnFirstTouch);
+                            document.body.removeEventListener('touchstart', playOnFirstTouch);
+                        };
+                        document.body.addEventListener('click', playOnFirstTouch, { once: true });
+                        document.body.addEventListener('touchstart', playOnFirstTouch, { once: true });
+                    });
+                }
+            }
+
+            // --- 1-ci səhifədən 2-ci səhifəyə keçid ---
+            function goToPage2() {
+                if (!page1 || !page2) return;
+                // 1-ci səhifəni gizlət
+                page1.classList.add('hidden');
+                // 2-ci səhifəni göstər
+                page2.style.display = 'flex';
+
+                // Konfeti başlat
+                startConfetti();
+
+                // Mahnını çalmağa cəhd et (əgər hələ çalmırsa)
+                playMusic();
+            }
+
+            // --- Başlanğıc (initialization) ---
+            window.addEventListener('load', function() {
+                // Uçan elementləri yarat
+                createFloatingItems();
+
+                // Audio-nu sıfırla və səssiz vəziyyətdə belə bir cəhd et (bəzi brauzerlər üçün)
+                if (audio) {
+                    audio.load();
+                    // Dərhal çalmağa çalış, amma xəta versə, sonra startBtn idarə edəcək
+                    audio.play().catch(() => {}); // Səhvləri gizlət
+                }
+
+                // Start düyməsinə klik hadisəsi əlavə et
+                if (startBtn) {
+                    startBtn.addEventListener('click', goToPage2);
+                    startBtn.addEventListener('touchstart', function(e) {
+                        e.preventDefault(); // Mobil cihazlarda iki dəfə klikin qarşısını almaq üçün
+                        goToPage2();
+                    }, { passive: false });
+                }
+
+                // Pəncərə ölçüsü dəyişəndə konfeti canvas-nı yenilə
+                window.addEventListener('resize', function() {
+                    if (confettiCanvas && confettiCanvas.style.display === 'block') {
+                        confettiCanvas.width = window.innerWidth;
+                        confettiCanvas.height = window.innerHeight;
+                    }
+                });
+            });
+
+        })(); // Funksiya öz-özünü çağırır
+    </script>
 </body>
 </html>
