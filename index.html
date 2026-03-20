@@ -15,19 +15,19 @@
 body {
     height: 100vh;
     overflow: hidden;
-    background: url("https://images.unsplash.com/photo-1587829741301-dc798b83add3") no-repeat center/cover;
+    background: url("https://images.unsplash.com/photo-1608889175766-5c9d6eebf6b0") no-repeat center/cover;
 }
 
-/* blur layer */
+/* blur */
 body::before {
     content: "";
     position: absolute;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(6px);
 }
 
-/* səhifə */
+/* page */
 .page {
     position: absolute;
     width: 100%;
@@ -40,13 +40,13 @@ body::before {
 /* kart */
 .card {
     backdrop-filter: blur(15px);
-    background: rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.45);
     border-radius: 25px;
     padding: 50px;
     text-align: center;
     color: white;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
-    animation: fadeIn 1.5s ease;
+    box-shadow: 0 0 40px rgba(0,0,0,0.7);
+    animation: fadeIn 1.2s ease;
 }
 
 @keyframes fadeIn {
@@ -62,6 +62,7 @@ body::before {
 h1 {
     font-size: 45px;
     margin-bottom: 20px;
+    text-shadow: 0 0 10px black;
 }
 
 /* button */
@@ -95,9 +96,12 @@ button:hover {
     to { text-shadow: 0 0 30px red; }
 }
 
+/* mesaj */
 .message {
-    font-size: 22px;
+    font-size: 24px;
     margin-top: 20px;
+    color: #ffffff;
+    text-shadow: 0 0 10px black;
 }
 
 /* ürəklər */
@@ -115,25 +119,26 @@ button:hover {
 /* fireworks */
 .firework {
     position: absolute;
-    width: 5px;
-    height: 5px;
-    background: white;
+    width: 6px;
+    height: 6px;
+    background: yellow;
     border-radius: 50%;
     animation: explode 1s ease-out forwards;
 }
 
 @keyframes explode {
     to {
-        transform: scale(20);
+        transform: scale(25);
         opacity: 0;
     }
 }
 
-/* musiqi düyməsi */
+/* music button */
 .music-btn {
     position: absolute;
     top: 20px;
     right: 20px;
+    font-size: 20px;
 }
 </style>
 </head>
@@ -141,10 +146,10 @@ button:hover {
 <body>
 
 <audio id="music" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3a7b5c5c0b.mp3?filename=romantic-background-112191.mp3" type="audio/mpeg">
 </audio>
 
-<button class="music-btn" onclick="playMusic()">🎵</button>
+<button class="music-btn" onclick="playMusic()">🎵 Play</button>
 
 <!-- 1-ci səhifə -->
 <div id="page1" class="page">
@@ -158,6 +163,7 @@ button:hover {
 <div id="page2" class="page hidden">
     <div class="card">
         <div class="name">Gilane ❤️</div>
+
         <div class="message">
             Mənim ən sevimli dayım qızı 💖<br><br>
             Səni Novruz bayramı münasibətilə təbrik edirəm!<br><br>
@@ -174,7 +180,8 @@ function nextPage() {
 
 /* musiqi */
 function playMusic(){
-    document.getElementById("music").play();
+    let music = document.getElementById("music");
+    music.play();
 }
 
 /* ürəklər */
