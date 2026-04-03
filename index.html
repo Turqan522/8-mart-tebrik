@@ -1,184 +1,163 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-<meta charset="UTF-8">
-<title>Novruz Təbriki</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aliyə & Turqan</title>
+    <style>
+        /* Ümumi tənzimləmələr */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            background: #ff9a9e;
+            background: linear-gradient(135deg, #fecfef 0%, #ff9a9e 99%, #fecfef 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+        /* Sehifeler */
+        .page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.8s ease-in-out, opacity 0.8s ease;
+            padding: 20px;
+            box-sizing: border-box;
+        }
 
-body {
-    height: 100vh;
-    overflow: hidden;
-    background: url("https://images.unsplash.com/photo-1518199266791-5375a83190b7") no-repeat center/cover;
-}
+        #page2 {
+            transform: translateX(100%);
+            opacity: 0;
+        }
 
-/* yumşaq overlay */
-body::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(5px);
-}
+        .active#page1 {
+            transform: translateX(0);
+            opacity: 1;
+        }
 
-/* page */
-.page {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .active#page2 {
+            transform: translateX(0);
+            opacity: 1;
+        }
 
-/* kart */
-.card {
-    backdrop-filter: blur(15px);
-    background: rgba(255, 192, 203, 0.15);
-    border-radius: 30px;
-    padding: 50px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 0 40px rgba(255,105,180,0.6);
-    animation: fadeIn 1.2s ease;
-}
+        .hidden {
+            transform: translateX(-100%) !important;
+            opacity: 0 !important;
+        }
 
-@keyframes fadeIn {
-    from {opacity:0; transform: scale(0.8);}
-    to {opacity:1; transform: scale(1);}
-}
+        /* Yazılar və Düymə */
+        h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
 
-.hidden {
-    display: none;
-}
+        p {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            max-width: 600px;
+        }
 
-/* title */
-h1 {
-    font-size: 45px;
-    margin-bottom: 20px;
-    color: #ffd1dc;
-    text-shadow: 0 0 15px #ff69b4;
-}
+        .btn {
+            background-color: #fff;
+            color: #ff4d6d;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            font-size: 1.2rem;
+        }
 
-/* button */
-button {
-    padding: 15px 35px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(45deg, pink, red);
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.3s;
-}
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
 
-button:hover {
-    transform: scale(1.1);
-}
+        /* Animasiyalı Ürəklər */
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.6);
+            user-select: none;
+            pointer-events: none;
+            animation: move linear infinite;
+        }
 
-/* Gilane */
-.name {
-    font-size: 70px;
-    font-weight: bold;
-    background: linear-gradient(45deg, #ff4d6d, #ff99ac, #ffccd5);
-    -webkit-background-clip: text;
-    color: transparent;
-    animation: glow 1.5s infinite alternate;
-}
+        @keyframes move {
+            0% { transform: translateY(100vh) scale(0); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
 
-@keyframes glow {
-    from { text-shadow: 0 0 10px pink; }
-    to { text-shadow: 0 0 30px red; }
-}
-
-/* mesaj */
-.message {
-    font-size: 24px;
-    margin-top: 20px;
-    color: #fff;
-    text-shadow: 0 0 10px black;
-}
-
-/* ürəklər */
-.heart {
-    position: absolute;
-    color: #ff4d6d;
-    animation: float 6s linear infinite;
-}
-
-@keyframes float {
-    from { transform: translateY(100vh); opacity:1; }
-    to { transform: translateY(-10vh); opacity:0; }
-}
-
-/* music btn */
-.music-btn {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-</style>
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
-
 <body>
 
-<audio id="music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/02/23/audio_d1718c3c8e.mp3?filename=love-ambient-111997.mp3">
-</audio>
-
-<button class="music-btn" onclick="playMusic()">🎵</button>
-
-<!-- 1-ci səhifə -->
-<div id="page1" class="page">
-    <div class="card">
-        <h1>🌸 Novruzun Mübarək 💕</h1>
-        <button onclick="nextPage()">Təbriki Aç ❤️</button>
-    </div>
-</div>
-
-<!-- 2-ci səhifə -->
-<div id="page2" class="page hidden">
-    <div class="card">
-        <div class="name">Gilane ❤️</div>
-
-        <div class="message">
-            Mənim ən sevimli dayım qızı 💖<br><br>
-            Səni Novruz bayramı münasibətilə təbrik edirəm!<br><br>
-            Sən mənim ürəyimsən ❤️
+    <div id="page1" class="page active">
+        <div class="container">
+            <h1>Salam, Mənim Dünyam.. ❤️</h1>
+            <p>Hər şeyə yenidən, daha gözəl başlamağa hazırsan?</p>
+            <br>
+            <button class="btn" onclick="nextPage()">Demək Başlayaq...</button>
         </div>
     </div>
-</div>
 
-<script>
-function nextPage() {
-    document.getElementById("page1").classList.add("hidden");
-    document.getElementById("page2").classList.remove("hidden");
-}
+    <div id="page2" class="page">
+        <div class="container">
+            <h1>Bağışla Məni, Aliyə ❤️</h1>
+            <p>
+                Səni hər şeydən, hər kəsdən çox sevirəm. Bəzən səhv edə bilərəm, amma qəlbim həmişə sənə aiddir. 
+                Sənin gülüşün mənim üçün ən böyük xoşbəxtlikdir. <br><br>
+                <b>Səni Çox Sevirəm!</b> <br>
+                Həmişə yanımda qal, Turqanın tək eşqi...
+            </p>
+        </div>
+    </div>
 
-/* musiqi */
-function playMusic(){
-    document.getElementById("music").play();
-}
+    <script>
+        function nextPage() {
+            document.getElementById('page1').classList.add('hidden');
+            document.getElementById('page1').classList.remove('active');
+            document.getElementById('page2').classList.add('active');
+        }
 
-/* ürəklər */
-setInterval(() => {
-    let heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random()*100 + "vw";
-    heart.style.fontSize = (15 + Math.random()*25)+"px";
-    document.body.appendChild(heart);
+        // Arxa fonda uçan ürəklər yaratmaq üçün funksiya
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+            document.body.appendChild(heart);
 
-    setTimeout(()=>heart.remove(),6000);
-},300);
-</script>
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
 
+        setInterval(createHeart, 300);
+    </script>
 </body>
 </html>
